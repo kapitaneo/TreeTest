@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace TreeTest.Core.Interfaces.Repository
 {
-    public interface IRepository<TEntity> where TEntity : IEntity<string>
+    public interface IRepository<T> : IDisposable
+        where T : class
     {
+        T GetById(string id);
     }
 }

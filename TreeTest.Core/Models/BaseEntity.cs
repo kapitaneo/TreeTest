@@ -8,7 +8,7 @@ using TreeTest.Core.Interfaces.Repository;
 
 namespace TreeTest.Core.Models
 {
-    public class BaseEntity : IEntity<string>, IBaseEntity
+    public class BaseEntity
     {
         [Key]
         [Required]

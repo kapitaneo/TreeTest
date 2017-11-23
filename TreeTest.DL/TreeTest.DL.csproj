@@ -53,7 +53,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\GenericRepositiry.cs" />
+    <Compile Include="Repository\Repository.cs" />
     <Compile Include="TreeTestContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,5 +71,6 @@
       <Name>TreeTest.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
