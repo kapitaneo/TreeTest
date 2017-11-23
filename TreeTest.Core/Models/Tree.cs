@@ -9,11 +9,8 @@ namespace TreeTest.Core.Models
     public class Tree : BaseEntity
     {
         public string Name { get; set; }
+        public string Path { get; set; }
+        public string ParentId { get; set; }
 
-        public Tree()
-        {
-            NodeLinks = new List<Tree>();
-        }
-        public IEnumerable<Tree> NodeLinks { get; set; }
     }
 }

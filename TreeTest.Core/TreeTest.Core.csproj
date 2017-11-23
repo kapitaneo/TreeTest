@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\Manager\IManager.cs" />
     <Compile Include="Interfaces\Repository\IEntity.cs" />
     <Compile Include="Interfaces\Repository\IGenericRepository.cs" />
     <Compile Include="Interfaces\Repository\IRepository.cs" />
