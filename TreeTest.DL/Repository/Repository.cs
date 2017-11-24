@@ -16,10 +16,17 @@ namespace TreeTest.DL.Repository
         {
             this.db = new TreeTestContext();
         }
+
+        public IEnumerable<Tree> GetTreeList()
+        {
+            return db.Trees;
+        }
         public Tree GetById(string id)
         {
-            throw new NotImplementedException();
+            return db.Trees.Find(id);
         }
+
+
 
         private bool disposed = false;
 
