@@ -24,7 +24,8 @@ namespace TreeTest.Controllers
         {
             var mainTree = repos.GetTreeList().FirstOrDefault(x=>x.ParentId==null);
 
-            TreeListModel listtree = new TreeListModel() { ListTrees=repos.GetTreeList().Where(x=>x.ParentId==mainTree.Id).ToList().Select(y=> new TreeModel(y)) };
+            TreeListModel Model = new TreeListModel() { ListTrees=repos.GetTreeList().Where(x=>x.ParentId==mainTree.Id).Select(y=> new TreeModel()) };
+
             return View();
         }
     }

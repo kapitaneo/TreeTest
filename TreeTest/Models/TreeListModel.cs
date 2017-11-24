@@ -8,7 +8,7 @@ namespace TreeTest.Models
     public class TreeListModel
     {
         public string Name { get; set; }
-        public IEnumerable<TreeListModel> ListTrees { get; set; }
+        public IEnumerable<TreeModel> ListTrees { get; set; }
 
     }
 }
