@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using TreeTest.App_Start;
 
 namespace TreeTest
 {
@@ -11,6 +12,8 @@ namespace TreeTest
     {
         protected void Application_Start()
         {
+            TreeTestDbInitializationHandler.Initialize();
+
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
