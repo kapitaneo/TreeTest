@@ -20,18 +20,21 @@ namespace TreeTest.Controllers
         }
 
         // GET: Home
+        [Route("{action = index}")]
         public ActionResult Index()
         {
-            var mainTree = repos.GetTreeList().FirstOrDefault(x=>x.ParentId==null);
+            var mainTree = repos.GetTreeList().FirstOrDefault(x => x.ParentId == null);
 
-            TreeListModel Model = new TreeListModel() {Name= mainTree.Name, ListTrees =repos.GetTreeList().ToList().FindAll(x => x.ParentId == mainTree.Id).Select(y=>new TreeModel(y)).ToList() };
+            TreeListModel Model = new TreeListModel() { Name = mainTree.Name, ListTrees = repos.GetTreeList().ToList().FindAll(x => x.ParentId == mainTree.Id).Select(y => new TreeModel(y)).ToList() };
 
             return View(Model);
         }
-
-        public ActionResult NextNode(string id, string name)
+        [HttpPost]
+        [Route("{path}")]
+        public ActionResult NextNode(string path)
         {
-            TreeListModel Model = new TreeListModel() { Name = name, ListTrees = repos.GetTreeList().ToList().FindAll(x => x.ParentId == id).Select(y => new TreeModel(y)).ToList() };
+            var mainTree = repos.GetTreeList().FirstOrDefault(x => x.Path == path);
+            TreeListModel Model = new TreeListModel() { Name = mainTree.Name, ListTrees = repos.GetTreeList().ToList().FindAll(x => x.ParentId == mainTree.Id).Select(y => new TreeModel(y)).ToList() };
 
             return View("Index", Model);
         }
