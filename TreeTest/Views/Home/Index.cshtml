@@ -1,4 +1,4 @@
-﻿
+﻿@model TreeTest.Models.TreeListModel
 @{
     Layout = null;
 }
@@ -8,10 +8,18 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>@Model.Name</title>
 </head>
 <body>
     <div> 
+        <h1>Folder: @Model.Name </h1>
+    </div>
+    <div>
+        @foreach (var node in Model.ListTrees)
+        {
+            <ul>@Html.ActionLink(node.Name, "NextNode", "Home", new { @id = node.Id, @name=node.Name }, null)</ul>
+        }
+
     </div>
 </body>
 </html>
