@@ -17,7 +17,7 @@
     <div>
         @foreach (var node in Model.ListTrees)
         {
-            <ul>@Html.ActionLink(node.Name, "NextNode", "Home", new {@path=node.Path}, null)</ul>
+            <ul>@Html.ActionLink(node.Name, "Index", "Home", new {@path=node.Path}, null)</ul>
         }
 
     </div>

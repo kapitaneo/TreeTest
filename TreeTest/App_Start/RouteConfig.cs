@@ -12,15 +12,16 @@ namespace TreeTest
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("");
             routes.MapMvcAttributeRoutes();
 
-            routes.MapRoute("Home", "{path}", new { controller = "Home", action = "NextNode" });
+            routes.MapRoute("Home", "{*path}", new { controller = "Home", action = "Index" });
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Home", action = "NextNode", id = UrlParameter.Optional }
+            //);
         }
     }
 }

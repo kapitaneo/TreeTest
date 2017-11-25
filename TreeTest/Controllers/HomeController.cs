@@ -10,6 +10,7 @@ using TreeTest.Models;
 
 namespace TreeTest.Controllers
 {
+    
     public class HomeController : Controller
     {
         IRepository<Tree> repos;
@@ -19,22 +20,30 @@ namespace TreeTest.Controllers
             repos = new Repository();
         }
 
-        // GET: Home
-        [Route("{action = index}")]
-        public ActionResult Index()
-        {
-            var mainTree = repos.GetTreeList().FirstOrDefault(x => x.ParentId == null);
+        //public ActionResult Index()
+        //{
+        //    var mainTree = repos.GetTreeList().FirstOrDefault(x => x.ParentId == null);
 
-            TreeListModel Model = new TreeListModel() { Name = mainTree.Name, ListTrees = repos.GetTreeList().ToList().FindAll(x => x.ParentId == mainTree.Id).Select(y => new TreeModel(y)).ToList() };
+        //    TreeListModel Model = new TreeListModel() { Name = mainTree.Name, ListTrees = repos.GetTreeList().ToList().FindAll(x => x.ParentId == mainTree.Id).Select(y => new TreeModel(y)).ToList() };
 
-            return View(Model);
-        }
-        [HttpPost]
-        [Route("{path}")]
-        public ActionResult NextNode(string path)
+        //    return View(Model);
+        //}
+
+        //[Route("{*path}")]
+        public ActionResult Index(string path)
         {
-            var mainTree = repos.GetTreeList().FirstOrDefault(x => x.Path == path);
-            TreeListModel Model = new TreeListModel() { Name = mainTree.Name, ListTrees = repos.GetTreeList().ToList().FindAll(x => x.ParentId == mainTree.Id).Select(y => new TreeModel(y)).ToList() };
+            TreeListModel Model;
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                var mainTree = repos.GetTreeList().FirstOrDefault(x => x.ParentId == null);
+
+                Model = new TreeListModel() { Name = mainTree.Name, ListTrees = repos.GetTreeList().ToList().FindAll(x => x.ParentId == mainTree.Id).Select(y => new TreeModel(y)).ToList() };
+            }
+            else
+            {
+                var mainTree = repos.GetTreeList().FirstOrDefault(x => x.Path == path);
+                Model = new TreeListModel() { Name = mainTree.Name, ListTrees = repos.GetTreeList().ToList().FindAll(x => x.ParentId == mainTree.Id).Select(y => new TreeModel(y)).ToList() };
+            }
 
             return View("Index", Model);
         }

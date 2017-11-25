@@ -20,7 +20,7 @@ namespace TreeTest.DL
             if (!context.Trees.Any())
             {
                context.Trees.AddOrUpdate(new Tree[] {
-                    new Tree{Id=Guid.NewGuid().ToString(), Name="Creating Digital Images", Path="Creating Digital Images/"},
+                    new Tree{Id=Guid.NewGuid().ToString(), Name="Creating Digital Images", Path="Creating Digital Images"},
                     new Tree{Id=Guid.NewGuid().ToString(), Name="Graphic Products"},
                     new Tree{Id=Guid.NewGuid().ToString(), Name="Evidence"},
                     new Tree{Id=Guid.NewGuid().ToString(), Name="Resources"},
@@ -31,13 +31,13 @@ namespace TreeTest.DL
                });
                      context.SaveChanges();
                     context.Trees.AddOrUpdate(x => x.Name, new Tree[] {
-                    new Tree{ Name="Graphic Products", ParentId=context.Trees.FirstOrDefault(x=>x.Name=="Creating Digital Images").Id, Path="Creating Digital Images/Graphic Products/"},
+                    new Tree{ Name="Graphic Products", ParentId=context.Trees.FirstOrDefault(x=>x.Name=="Creating Digital Images").Id, Path="Creating Digital Images/Graphic Products"},
                     new Tree{ Name="Evidence", Path="Creating Digital Images/Evidence", ParentId=context.Trees.FirstOrDefault(x=>x.Name=="Creating Digital Images").Id },
-                    new Tree{ Name="Resources", ParentId=context.Trees.FirstOrDefault(x=>x.Name=="Creating Digital Images").Id, Path="Creating Digital Images/Resources/" },
-                    new Tree{ Name="Process", ParentId=context.Trees.FirstOrDefault(x=>x.Name=="Graphic Products").Id , Path="Creating Digital Images/Graphic Products/Process/"},
-                    new Tree{ Name="Final Product", ParentId=context.Trees.FirstOrDefault(x=>x.Name=="Graphic Products").Id, Path="Creating Digital Images/Graphic Products/Final Product/" },
-                    new Tree{ Name="Secondary Sources",  ParentId=context.Trees.FirstOrDefault(x=>x.Name=="Resources").Id, Path="Creating Digital Images/Resources/Secondary Sources/"},
-                    new Tree{ Name="Primary Sources", ParentId=context.Trees.FirstOrDefault(x=>x.Name=="Resources").Id, Path="Creating Digital Images/Resources/Primary Sources/"},
+                    new Tree{ Name="Resources", ParentId=context.Trees.FirstOrDefault(x=>x.Name=="Creating Digital Images").Id, Path="Creating Digital Images/Resources" },
+                    new Tree{ Name="Process", ParentId=context.Trees.FirstOrDefault(x=>x.Name=="Graphic Products").Id , Path="Creating Digital Images/Graphic Products/Process"},
+                    new Tree{ Name="Final Product", ParentId=context.Trees.FirstOrDefault(x=>x.Name=="Graphic Products").Id, Path="Creating Digital Images/Graphic Products/Final Product" },
+                    new Tree{ Name="Secondary Sources",  ParentId=context.Trees.FirstOrDefault(x=>x.Name=="Resources").Id, Path="Creating Digital Images/Resources/Secondary Sources"},
+                    new Tree{ Name="Primary Sources", ParentId=context.Trees.FirstOrDefault(x=>x.Name=="Resources").Id, Path="Creating Digital Images/Resources/Primary Sources"},
                 });
             }
             context.SaveChanges();
