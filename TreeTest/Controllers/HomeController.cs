@@ -20,16 +20,6 @@ namespace TreeTest.Controllers
             repos = new Repository();
         }
 
-        //public ActionResult Index()
-        //{
-        //    var mainTree = repos.GetTreeList().FirstOrDefault(x => x.ParentId == null);
-
-        //    TreeListModel Model = new TreeListModel() { Name = mainTree.Name, ListTrees = repos.GetTreeList().ToList().FindAll(x => x.ParentId == mainTree.Id).Select(y => new TreeModel(y)).ToList() };
-
-        //    return View(Model);
-        //}
-
-        //[Route("{*path}")]
         public ActionResult Index(string path)
         {
             TreeListModel Model;

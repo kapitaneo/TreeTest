@@ -15,12 +15,6 @@ namespace TreeTest
             routes.MapMvcAttributeRoutes();
 
             routes.MapRoute("Home", "{*path}", new { controller = "Home", action = "Index" });
-
-            //routes.MapRoute(
-            //    name: "Default",
-            //    url: "{controller}/{action}/{id}",
-            //    defaults: new { controller = "Home", action = "NextNode", id = UrlParameter.Optional }
-            //);
         }
     }
 }
