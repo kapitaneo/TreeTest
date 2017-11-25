@@ -12,7 +12,6 @@ namespace TreeTest
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.IgnoreRoute("");
             routes.MapMvcAttributeRoutes();
 
             routes.MapRoute("Home", "{*path}", new { controller = "Home", action = "Index" });
